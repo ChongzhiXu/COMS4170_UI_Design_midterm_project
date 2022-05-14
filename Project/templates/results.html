@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+{{ super() }}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'results.js') }}"></script>
+
+<script>
+    var n_items = {{n_items|tojson}};
+    var results = {{results|tojson}};
+    var names = {{names|tojson}}
+</script>
+
+<style>
+    .card {
+        height: 380px;
+    }
+    .card-img-top {
+        display: block;
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 35%;
+        height: auto;
+    }
+    .card-title {
+        text-align: center;
+    }
+    .card-text {
+        text-align: justify; 
+        color: grey;
+    }
+    .highlight-result {
+        background-color: #79c3ff;
+    }
+</style>
+
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+
+{% endblock content %}

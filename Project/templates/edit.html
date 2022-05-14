@@ -1,0 +1,136 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+{{ super() }}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'edit.js') }}"></script>
+
+<script>
+var item = {{item|tojson}};
+var names = {{names|tojson}};
+var id = {{id|tojson}}
+</script>
+
+<style>
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.title {
+    font-size: 25px;
+    text-align: center;
+}
+.edit {
+    font-size: 28px;
+}
+.warning {
+    color: red;
+}
+.header {
+        display: block;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+</style>
+
+{% endblock head %}
+
+{% block content %}
+    
+{{ super() }}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-primary" role="alert" id="success-notification">
+            
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 header">
+        <h2>Edit the weapon page here!</h2>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="image" class="col-md-12 image"></div>
+            <br>
+            <div class="row">
+                <div id="title" class="col-md-12 title"></div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+
+<form id="new-form" novalidate>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Attack</label>
+        <div class="col-sm-4" id="form-attack">
+            <!-- <input type="number" min="0" max="99" class="form-control" id="input-attack" placeholder="#attack value 0~99" required> -->
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Durability</label>
+        <div class="col-sm-4" id="form-durability">
+            <!-- <input type="number" min="0" max="99" class="form-control" id="input-durability" placeholder="#durability value 0~99" required> -->
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Location</label>
+        <div class="col-sm-10" id="form-location">
+            <!-- <input type="text" class="form-control" id="input-location" placeholder="#location" required> -->
+            <div class="invalid-feedback">
+                Please insert a Location.
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Image link</label>
+        <div class="col-sm-10" id="form-image">
+            <input type="url" class="form-control" id="input-image" placeholder="#url" required>
+            <div class="invalid-feedback">
+                Please insert a valid link of an image.
+            </div>
+        </div>
+    </div> -->
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Summary</label>
+        <div class="col-sm-10" id="form-summary">
+            <!-- <input type="text" class="form-control" id="input-summary" placeholder="#summary" required> -->
+            <div class="invalid-feedback">
+                Please insert a summary.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10" id="form-description">
+            <!-- <textarea class="form-control" id="input-description" rows="3" placeholder="#description" required ></textarea> -->
+            <div class="invalid-feedback">
+                Please insert a detailed description.
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-4"></div>
+        <div class="col-md-10">
+            <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-secondary" id="discard-button">Discard</button>
+        </div>
+    </div>
+</form>
+
+
+{% endblock content %}

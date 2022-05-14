@@ -1,0 +1,78 @@
+#search-box {
+    width: 400px;
+}
+#search-btn{
+    width: 100px;
+}
+.form-inline {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.result-item {
+    padding: 20px;
+}
+.summary {
+    display: block;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+.card-example {
+    height: 280px;
+}
+.card-img-top {
+    display: block;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 110px;
+    height: auto;
+    image-rendering: pixelated;
+}
+.card-title {
+    text-align: center;
+}
+/* This part of the ui design was referenced: 
+    http://hackingui.com/front-end/a-pure-css-solution-for-multiline-text-truncation/ */
+/* styles for '...' */ 
+.block-with-text {
+    color: grey;
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative; 
+    /* use this value to count block height */
+    line-height: 1.2em;
+    /* max-height = line-height (1.2) * lines max number (3) */
+    max-height: 4.8em; 
+    /* fix problem when last visible word doesn't adjoin right side  */
+    text-align: justify;  
+    /* place for '...' */
+    margin-right: -1em;
+    padding-right: 1em;
+}
+/* create the ... */
+.block-with-text:before {
+    /* points in the end */
+    content: '...';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of block */
+    right: 0;
+    bottom: 0;
+}
+/* hide ... if we have text, which is less than or equal to max lines */
+.block-with-text:after {
+    /* points in the end */
+    content: '';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    /* set width and height */
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    /* bg color = bg color under block */
+    background: white;
+}

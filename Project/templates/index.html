@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+
+{{ super() }}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'index.js') }}"></script>
+
+<script>
+    var data = {{data|tojson}};
+    var names = {{names|tojson}}
+</script>
+
+<style>
+    .card {
+    height: 380px;
+}
+</style>
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+
+<div class="row">
+    <div class="col-md-12 summary">Search for Weapons and check the property or Create new Weapons, write/see reviews for/from other players!</div>
+</div>
+
+<div id="example" class="row"></div>
+
+{% endblock content %}
